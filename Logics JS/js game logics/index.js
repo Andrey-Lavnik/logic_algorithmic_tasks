@@ -1,14 +1,14 @@
-var $start = document.querySelector('#start')
-var $game = document.querySelector('#game')
-var $time = document.querySelector('#time')
-var $result = document.querySelector('#result')
-var $timeHeader = document.querySelector('#time-header')
-var $resultHeader = document.querySelector('#result-header')
-var $gameTime = document.querySelector('#game-time')
+let $start = document.querySelector('#start')
+let $game = document.querySelector('#game')
+let $time = document.querySelector('#time')
+let $result = document.querySelector('#result')
+let $timeHeader = document.querySelector('#time-header')
+let $resultHeader = document.querySelector('#result-header')
+let $gameTime = document.querySelector('#game-time')
 
-var score = 0
-var isGameStarted = false
-var colors = ['#1BFFFF', '#FCEE21', '#FFE98A', '#3AA17E', '#00FFEE', '#B5FFFF', '#3AA17E', '#FCEE21', '#00A99D']
+let score = 0
+let isGameStarted = false
+let colors = ['#1BFFFF', '#FCEE21', '#FFE98A', '#3AA17E', '#00FFEE', '#B5FFFF', '#3AA17E', '#FCEE21', '#00A99D']
 
 $start.addEventListener('click', startGame)
 $game.addEventListener('click', handleBoxClick)
@@ -30,8 +30,8 @@ function startGame() {
     $game.style.backgroundColor = '#fff'
     hide($start)
 
-    var interval = setInterval(function () {
-        var time = parseFloat($time.textContent)
+    let interval = setInterval(function () {
+        let time = parseFloat($time.textContent)
         
         if (time <= 0){
             clearInterval(interval)
@@ -49,7 +49,7 @@ function setGameScore() {
 }
 
 function setGameTime() {
-    var time = +$gameTime.value
+    let time = +$gameTime.value
     $time.textContent = time.toFixed(1)
     show($timeHeader)
     hide($resultHeader)
@@ -79,12 +79,12 @@ function handleBoxClick(event) {
 
 function renderBox() {
     $game.innerHTML = ''
-    var box = document.createElement('div')
-    var boxSize = getRandom(30, 100)
-    var gameSize = $game.getBoundingClientRect()
-    var maxTop = gameSize.height - boxSize
-    var maxLeft = gameSize.width - boxSize
-    var randomColorIndex = getRandom(0, colors.length)
+    let box = document.createElement('div')
+    let boxSize = getRandom(30, 100)
+    let gameSize = $game.getBoundingClientRect()
+    let maxTop = gameSize.height - boxSize
+    let maxLeft = gameSize.width - boxSize
+    let randomColorIndex = getRandom(0, colors.length)
 
 
     box.style.height = box.style.width = boxSize + 'px'
